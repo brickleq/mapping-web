@@ -9,3 +9,10 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     id: 'mapbox.streets',
     accessToken: accessToken
 }).addTo(mymap);
+
+  // load GeoJSON from an external file
+  jQuery.getJSON(dataURL,function(data){
+      console.log(data);
+    // add GeoJSON layer to the map once the file is loaded
+    L.geoJson(data).addTo(mymap);
+  });
